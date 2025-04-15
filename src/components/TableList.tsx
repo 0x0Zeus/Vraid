@@ -87,7 +87,9 @@ const TableList = () => {
                   </TableCell>
                   <TableCell className="text-center">
                     <HoverCard>
-                      <HoverCardTrigger>${formatNumber(item.prices[0].outcome)}</HoverCardTrigger>
+                      <HoverCardTrigger>
+                        ${formatNumber(item.prices[0].outcome)}
+                      </HoverCardTrigger>
                       <HoverCardContent align="end" className=" bg-white">
                         <Table className="bg-black border border-[#ffffff]/30">
                           <TableBody>
