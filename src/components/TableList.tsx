@@ -100,17 +100,17 @@ const TableList = () => {
                                   {`${price.chance < 1 ? '<1' : price.chance}`}%
                                 </TableCell>
                                 <TableCell className="text-left pr-5">
-                                  <div className="group flex items-center gap-2">
+                                  <div className=" flex items-center gap-2">
                                     <button
                                       onClick={() => { }}
-                                      className={`relative w-12 h-7 rounded-full bg-[#00FFB2]/20 text-[#00FFB2] text-sm cursor-pointer `}
+                                      className={`relative w-12 h-7 rounded-full bg-[#00FFB2]/20 text-[#00FFB2] text-sm cursor-pointer group`}
                                     >
                                       <span className="block group-hover:invisible">Yes</span>
                                       <span className="absolute inset-0 flex justify-center items-center invisible group-hover:visible">{price.yes}¢</span>
                                     </button>
                                     <button
                                       onClick={() => { }}
-                                      className={`relative w-12 h-7 rounded-full bg-[#FF6B00]/20 text-[#FF6B00] text-sm cursor-pointer `}
+                                      className={`relative w-12 h-7 rounded-full bg-[#FF6B00]/20 text-[#FF6B00] text-sm cursor-pointer group`}
                                     >
                                       <span className="block group-hover:invisible">No</span>
                                       <span className="absolute inset-0 flex justify-center items-center invisible group-hover:visible">{price.no}¢</span>
@@ -126,17 +126,17 @@ const TableList = () => {
                   </TableCell>
                   <TableCell className="text-left pr-5 md:pr-10 flex items-center justify-start gap-4">
                     {item.prices[0].chance}%
-                    <div className="flex items-center gap-2 group">
+                    <div className="flex items-center gap-2 ">
                       <button
                         onClick={() => { }}
-                        className={`relative w-12 h-7 rounded-full bg-[#00FFB2]/20 text-[#00FFB2] text-sm cursor-pointer`}
+                        className={`relative w-12 h-7 rounded-full bg-[#00FFB2]/20 text-[#00FFB2] text-sm cursor-pointer group`}
                       >
                         <span className="block group-hover:invisible">Yes</span>
                         <span className="absolute inset-0 flex justify-center items-center invisible group-hover:visible">{item.prices[0].yes}¢</span>
                       </button>
                       <button
                         onClick={() => { }}
-                        className={`relative w-12 h-7 rounded-full bg-[#FF6B00]/20 text-[#FF6B00] text-sm cursor-pointer`}
+                        className={`relative w-12 h-7 rounded-full bg-[#FF6B00]/20 text-[#FF6B00] text-sm cursor-pointer group`}
                       >
                         <span className="block group-hover:invisible">No</span>
                         <span className="absolute inset-0 flex justify-center items-center invisible group-hover:visible">{item.prices[0].no}¢</span>

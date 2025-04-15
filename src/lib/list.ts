@@ -1,47 +1,47 @@
 export const list = {
   trending: [
     "All", 
-    "Crypto Prices", 
     "Bitcoin", 
-    "Crypto Reserve", 
     "Micro Strategy", 
-    "Airdrops", 
+    "Crypto Prices", 
     "Ethereum", 
+    "Crypto Reserve", 
+    "Market",
+    "Airdrops", 
     "Solana", 
-    "Market"
   ],
   new: [
     "All", 
-    "Crypto Prices", 
-    "Bitcoin", 
+    "Ethereum", 
     "Crypto Reserve", 
     "Micro Strategy", 
     "Airdrops", 
-    "Ethereum", 
+    "Crypto Prices", 
     "Solana", 
-    "Market"
+    "Bitcoin", 
+    "Market",
   ],
   politics: [
     "All", 
-    "Crypto Prices", 
-    "Bitcoin", 
     "Crypto Reserve", 
     "Micro Strategy", 
-    "Airdrops", 
+    "Crypto Prices", 
     "Ethereum", 
+    "Market",
+    "Bitcoin", 
     "Solana", 
-    "Market"
+    "Airdrops", 
   ],
   sports: [
     "All", 
-    "Crypto Prices", 
     "Bitcoin", 
-    "Crypto Reserve", 
+    "Solana", 
     "Micro Strategy", 
     "Airdrops", 
     "Ethereum", 
-    "Solana", 
-    "Market"
+    "Crypto Reserve", 
+    "Crypto Prices", 
+    "Market",
   ],
   crypto: [
     "All", 
@@ -52,29 +52,29 @@ export const list = {
     "Airdrops", 
     "Ethereum", 
     "Solana", 
-    "Market"
+    "Market",
   ],
   tech: [
     "All", 
-    "Crypto Prices", 
-    "Bitcoin", 
+    "Ethereum", 
     "Crypto Reserve", 
     "Micro Strategy", 
+    "Bitcoin", 
     "Airdrops", 
-    "Ethereum", 
+    "Crypto Prices", 
     "Solana", 
-    "Market"
+    "Market",
   ],
   culture: [
     "All", 
-    "Crypto Prices", 
     "Bitcoin", 
+    "Ethereum", 
     "Crypto Reserve", 
     "Micro Strategy", 
     "Airdrops", 
-    "Ethereum", 
+    "Crypto Prices", 
     "Solana", 
-    "Market"
+    "Market",
   ],
   world: [
     "All", 
@@ -85,7 +85,7 @@ export const list = {
     "Airdrops", 
     "Ethereum", 
     "Solana", 
-    "Market"
+    "Market",
   ],
   economy: [
     "All", 
@@ -96,7 +96,7 @@ export const list = {
     "Airdrops", 
     "Ethereum", 
     "Solana", 
-    "Market"
+    "Market",
   ],
   trump: [
     "All", 
@@ -107,7 +107,7 @@ export const list = {
     "Airdrops", 
     "Ethereum", 
     "Solana", 
-    "Market"
+    "Market",
   ],
   Elections: [
     "All", 
@@ -118,7 +118,7 @@ export const list = {
     "Airdrops", 
     "Ethereum", 
     "Solana", 
-    "Market"
+    "Market",
   ],
   Mentions: [
     "All", 
@@ -129,6 +129,6 @@ export const list = {
     "Airdrops", 
     "Ethereum", 
     "Solana", 
-    "Market"
+    "Market",
   ]
 }
