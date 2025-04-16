@@ -130,7 +130,6 @@
     text-wrap: balance;
   }
 
-  /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -181,5 +180,24 @@
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
+  }
+
+  .vertical-scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    white-space: nowrap;
+  }
+
+  .vertical-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Enable vertical scrolling with mouse wheel when hovering */
+  .vertical-scroll {
+    scroll-behavior: smooth;
   }
 }

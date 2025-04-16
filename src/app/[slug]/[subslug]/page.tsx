@@ -1,8 +1,9 @@
 'use client'
 
-import GridList from "@/components/GridList"
+import GridList from "@/components/gridlist/GridList"
 import TableList from "@/components/TableList"
 import { useDisplay } from "@/context/DisplayContext"
+import data from "@/lib/data"
 import React, { use } from "react"
 
 const Page = ({ params }: { params: Promise<{ slug: string, subslug: string }> }) => {
@@ -11,7 +12,7 @@ const Page = ({ params }: { params: Promise<{ slug: string, subslug: string }> }
 
   return (
     <>
-      {displayWay === 'list' ? <TableList /> : <GridList />}
+      {displayWay === 'list' ? <TableList data={data} /> : <GridList data={data} />}
     </>
   )
 }
