@@ -4,29 +4,21 @@ import PageNum from "@/components/pageNum";
 import SelectBox from "@/components/selectBox";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import data from "@/lib/data";
 import { useState, use, useEffect } from "react";
 import { GoGift } from "react-icons/go";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem } from "./ui/dropdown-menu";
 import { HoverCard, HoverCardTrigger } from "./ui/hover-card";
 import { HoverCardContent } from "@radix-ui/react-hover-card";
+import { marketData } from "@/lib/types";
+import { formatNumber } from "@/lib/functions";
+import Link from "next/link";
 
-const TableList = () => {
+const TableList = ({ data }: { data: marketData[] }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [display, setDisplay] = useState<number>(10);
   const [pageNum, setPageNum] = useState(1);
   const totalPage = Math.ceil(data.length / display);
-
-  const formatNumber = (num: number): string => {
-    if (num >= 1000000) {
-      return (num / 1000000).toFixed(0) + "M";
-    } else if (num >= 1000) {
-      return (num / 1000).toFixed(0) + "K";
-    } else {
-      return num.toString();
-    }
-  };
 
   const setDisplayCount = (num: number) => {
     setDisplay(num);
@@ -81,7 +73,7 @@ const TableList = () => {
                   key={i}
                   className={`text-base h-12 border-none ${i % 2 === 1 ? 'bg-[#ffffff]/10' : ''}`}
                 >
-                  <TableCell className="pl-5 md:pl-10 text-left">{item.title}</TableCell>
+                  <TableCell className="pl-5 md:pl-10 text-left hover:underline hover:text-[#00FFb2]/80"><Link href={'#'}>{item.title}</Link></TableCell>
                   <TableCell className="text-center">
                     ${formatNumber(item.volume)} VOL Montly
                   </TableCell>
@@ -90,7 +82,7 @@ const TableList = () => {
                       <HoverCardTrigger>
                         ${formatNumber(item.prices[0].outcome)}
                       </HoverCardTrigger>
-                      <HoverCardContent align="end" className=" bg-white">
+                      <HoverCardContent align="end" className=" bg-white z-50">
                         <Table className="bg-black border border-[#ffffff]/30">
                           <TableBody>
                             {item.prices.map((price, index) => (

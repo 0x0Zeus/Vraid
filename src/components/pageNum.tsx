@@ -20,21 +20,22 @@ const PageNum = ({ setPage, pageNum, totalPage }: PageNumProps) => {
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" onClick={() => handlePageChange(Math.max(1, pageNum - 1))} />
+          <PaginationPrevious href="#" onClick={() => handlePageChange(Math.max(1, pageNum - 1))} className="border border-[#d9d9d9]/30" />
         </PaginationItem>
-        {pageNumbers.map((page) => (
+        {/* {pageNumbers.map((page) => (
           <PaginationItem key={page}>
             <PaginationLink
               href="#"
               isActive={page === pageNum}
               onClick={() => handlePageChange(page)}
+              className="border-[#d9d9d9]/30"
             >
               {page}
             </PaginationLink>
           </PaginationItem>
-        ))}
+        ))} */}
         <PaginationItem>
-          <PaginationNext href="#" onClick={() => handlePageChange(Math.min(totalPage, pageNum + 1))} />
+          <PaginationNext href="#" onClick={() => handlePageChange(Math.min(totalPage, pageNum + 1))} className="border border-[#d9d9d9]/30"  />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

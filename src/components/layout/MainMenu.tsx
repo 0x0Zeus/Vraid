@@ -12,10 +12,9 @@ const MainMenu = () => {
 
   return (
     <div className="px-10 pb-5 h-full flex items-center justify-start gap-5">
-      <FaArrowTrendUp className="text-2xl text-[#00FFB2]/80 shrink-0" />
       <ul className="flex gap-5 text-lg font-medium border-r-2 border-white pr-5 shrink-0">
         <li className={`hover:text-[#00FFB2]/80 transition-colors duration-150 ease-initial ${path === 'trending' ? 'text-[#00FFB2]/80' : ''}`}>
-          <Link href="/trending">Trending</Link>
+          <Link href="/trending" className="flex items-center gap-1"><FaArrowTrendUp className="text-2xl shrink-0" />Trending</Link>
         </li>
         <li className={`hover:text-[#00FFB2]/80 transition-colors duration-150 ease-initial ${path === 'new' ? 'text-[#00FFB2]/80' : ''}`}>
           <Link href="/new">New</Link>

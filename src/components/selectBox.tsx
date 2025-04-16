@@ -8,10 +8,10 @@ interface SelectBoxProps {
 const SelectBox = ({ clickOption, displayValue }: SelectBoxProps) => {
   return (
     <Select onValueChange={(value) => clickOption(Number(value))}>
-      <SelectTrigger className="w-[100px]">
+      <SelectTrigger className="w-[100px] border-[#d9d9d9]/30">
         <SelectValue placeholder={String(displayValue)} />
       </SelectTrigger>
-      <SelectContent >
+      <SelectContent>
         <SelectGroup >
           <SelectItem value="10">
             10

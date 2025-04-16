@@ -11,7 +11,7 @@ import { useDisplay } from "@/context/DisplayContext";
 const SubMenu = ({ param }: { param: string }) => {
   const pathname = usePathname();
   const path = pathname.split('/')[2];
-  const {displayWay, toggleDisplayWay} = useDisplay();
+  const { displayWay, toggleDisplayWay } = useDisplay();
 
   const items = list[param as keyof typeof list] || [];
 
@@ -24,12 +24,13 @@ const SubMenu = ({ param }: { param: string }) => {
           const endpoint = item.toLowerCase().split(' ').join('-');
 
           return (
-          <Link key={item} href={`/${param}/${endpoint}`}
-            className={`whitespace-nowrap px-5 py-1 hover:bg-[#ffffff]/30 rounded-full hover:text-[#00FFB2]/80 transition-colors duration-150 ease-initial ${path === endpoint ? 'text-[#00FFB2] bg-[#ffffff]/30' : ''}`}
-          >
-            {item}
-          </Link>
-        )})}
+            <Link key={item} href={`/${param}/${endpoint}`}
+              className={`whitespace-nowrap px-5 py-1 hover:bg-[#ffffff]/30 rounded-full hover:text-[#00FFB2]/80 transition-colors duration-150 ease-initial ${path === endpoint ? 'text-[#00FFB2] bg-[#ffffff]/30' : ''}`}
+            >
+              {item}
+            </Link>
+          )
+        })}
       </div>
       <div className="flex items-center space-x-5">
         <div className="relative flex-shrink-0 flex items-center border border-[#ffffff]/30 rounded-full ml-4">
