@@ -1,6 +1,6 @@
 import { price } from "@/lib/types"
 
-const LimitSell = ({prices}: {prices: price | undefined}) => {
+const LimitSell = ({price}: {price: number | undefined}) => {
   return (
 <></>
   )

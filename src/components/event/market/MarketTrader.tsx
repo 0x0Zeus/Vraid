@@ -58,8 +58,8 @@ const MarketTrader = ({
             <MarketBuy price={chosenPrice} /> :
             <LimitBuy price={chosenPrice} /> :
           marketType === 'market' ?
-            <MarketSell prices={prices} /> :
-            <LimitSell prices={prices} />
+            <MarketSell price={chosenPrice} /> :
+            <LimitSell price={chosenPrice} />
       }
       <div className="px-5 w-full">
         <Button variant="outline" className="capitalize w-full cursor-pointer hover:shadow-[0_0_10px_rgba(255,69,0)] text-[#ff4500] border-[#ff4500]/80 hover:bg-[#ff4500]/80 hover:text-white text-lg">
