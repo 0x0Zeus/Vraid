@@ -112,7 +112,7 @@ const AuthModal = ({ param }: { param: string }) => {
           </Button>
           <Button variant={"outline"} className="cursor-pointer rounded-md bg-transparent border border-[#d9d9d9]/30 hover:bg-white">
             <Image
-              src={'/Walletconnect.png'}
+              src={'/WalletConnect.png'}
               alt="Walletconnect"
               width={20}
               height={20}
