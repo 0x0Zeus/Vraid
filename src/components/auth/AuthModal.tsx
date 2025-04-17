@@ -1,6 +1,6 @@
 'use client'
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog"
 import { z } from 'zod'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
@@ -34,7 +34,7 @@ const AuthModal = ({ param }: { param: string }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="w-[100px] cursor-pointer hover:shadow-[0_0_10px_rgba(0,255,178)] text-[#00FFB2]/80 border-[#00FFB2]/80 hover:bg-[#00FFb2]/80 hover:text-white">
+        <Button variant="outline" className="w-[100px] cursor-pointer hover:shadow-[0_0_10px_rgba(255,69,0)] text-[#ff4500]/80 border-[#ff4500]/80 hover:bg-[#ff4500]/80 hover:text-white">
           {param === "login" ? "Login" : "Register"}
         </Button>
       </DialogTrigger>
@@ -44,6 +44,7 @@ const AuthModal = ({ param }: { param: string }) => {
             <span>Welcome to</span>
             <Image src="/logo.png" alt='Logo' width={300} height={100} className="h-8 w-auto" />
           </DialogTitle>
+          <DialogDescription></DialogDescription>
         </DialogHeader>
         <Button variant="outline" className="max-w-[320px] w-full bg-[#2ela47] text-white hover:bg-white hover:text-black cursor-pointer border-[#d9d9d9]/30">
           <Image
@@ -51,7 +52,7 @@ const AuthModal = ({ param }: { param: string }) => {
             alt="Google"
             width={256}
             height={256}
-            className="h-6 w-auto"
+            className="h-5 w-auto mr-2"
           />
           Connect with Google
         </Button>
@@ -88,7 +89,7 @@ const AuthModal = ({ param }: { param: string }) => {
               alt="Phantom"
               width={20}
               height={20}
-              className="h-6 w-auto"
+              className="w-auto h-5"
             />
           </Button>
           <Button variant={"outline"} className="cursor-pointer rounded-md bg-transparent border border-[#d9d9d9]/30 hover:bg-white">
@@ -97,7 +98,7 @@ const AuthModal = ({ param }: { param: string }) => {
               alt="Metamask"
               width={20}
               height={20}
-              className="h-6 w-auto"
+              className="h-5 w-auto"
             />
           </Button>
           <Button variant={"outline"} className="cursor-pointer rounded-md bg-transparent border border-[#d9d9d9]/30 hover:bg-white">
@@ -106,7 +107,7 @@ const AuthModal = ({ param }: { param: string }) => {
               alt="Coinbase"
               width={20}
               height={20}
-              className="h-6 w-auto"
+              className="h-5 w-auto"
             />
           </Button>
           <Button variant={"outline"} className="cursor-pointer rounded-md bg-transparent border border-[#d9d9d9]/30 hover:bg-white">
@@ -115,7 +116,7 @@ const AuthModal = ({ param }: { param: string }) => {
               alt="Walletconnect"
               width={20}
               height={20}
-              className="h-6 w-auto"
+              className="h-5 w-auto"
             />
           </Button>
         </div>

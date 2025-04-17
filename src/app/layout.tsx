@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Chakra_Petch } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
-import { DisplayProvider } from "@/context/DisplayContext";
 
 const chakra_petch = Chakra_Petch({
   weight: ["300", "400", "500", "600", "700"],
@@ -25,12 +24,10 @@ export default function RootLayout({
       <body
         className={`${chakra_petch.variable} antialiased `}
       >
-        <DisplayProvider>
-          <Header />
-          <main className="max-w-[1440px] mx-auto">
-            {children}
-          </main>
-        </DisplayProvider>
+        <Header />
+        <main className="max-w-[1440px] mx-auto mt-[150px] font-chakra-petch">
+          {children}
+        </main>
       </body>
     </html>
   );

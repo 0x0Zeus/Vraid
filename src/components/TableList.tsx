@@ -12,8 +12,10 @@ import { HoverCardContent } from "@radix-ui/react-hover-card";
 import { marketData } from "@/lib/types";
 import { formatNumber } from "@/lib/functions";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const TableList = ({ data }: { data: marketData[] }) => {
+  const pathname = usePathname();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [display, setDisplay] = useState<number>(10);
@@ -73,7 +75,7 @@ const TableList = ({ data }: { data: marketData[] }) => {
                   key={i}
                   className={`text-base h-12 border-none ${i % 2 === 1 ? 'bg-[#ffffff]/10' : ''}`}
                 >
-                  <TableCell className="pl-5 md:pl-10 text-left hover:underline hover:text-[#00FFb2]/80"><Link href={'#'}>{item.title}</Link></TableCell>
+                  <TableCell className="pl-5 md:pl-10 text-left hover:underline hover:text-[#ff4500]/80"><Link href={`/event/${item.title.replace(/[^a-zA-Z0-9 ]/g, '').replace(/\s+/g, '-').toLowerCase()}`}>{item.title}</Link></TableCell>
                   <TableCell className="text-center">
                     ${formatNumber(item.volume)} VOL Montly
                   </TableCell>
