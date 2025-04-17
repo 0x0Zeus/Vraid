@@ -5,7 +5,7 @@ import { useState } from "react"
 const SHARES_MAX = 999;
 
 const MarketSell = ({ price }: { price: number | undefined }) => {
-  const [shares, setShares] = useState<number>(1)
+  const [shares, setShares] = useState<number>(0)
 
   return (
     <>
@@ -37,11 +37,12 @@ const MarketSell = ({ price }: { price: number | undefined }) => {
           Max
         </button>
       </div>
-
-      <div className="border-t-2 border-[#d9d9d9]/30 w-full flex items-end justify-between py-5">
-        <span className="text-lg font-medium">Profit</span>
-        <span className="text-2xl font-medium text-[#00FFB2]">${price ? (shares * price / 100).toFixed(2) : 0}</span>
-      </div>
+      {shares > 0 && (
+        <div className="border-t-2 border-[#d9d9d9]/30 w-full flex items-end justify-between py-5">
+          <span className="text-lg font-medium">Profit</span>
+          <span className="text-2xl font-medium text-[#00FFB2]">${price ? (shares * price / 100).toFixed(2) : 0}</span>
+        </div>
+      )}
     </>
   )
 }

@@ -4,12 +4,12 @@ import { price } from "@/lib/types"
 import { useEffect, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 
-const SHARE_MIN = 1;
+const SHARE_MIN = 0;
 const SHARE_MAX = 999;
 
 const LimitBuy = ({ price }: { price: number | undefined }) => {
   const [limitPrice, setLimitPrice] = useState<number>(0);
-  const [shares, setShares] = useState<number>(1)
+  const [shares, setShares] = useState<number>(0)
 
   const clampShares = (value: number) => Math.min(SHARE_MAX, Math.max(SHARE_MIN, value))
 
@@ -51,7 +51,7 @@ const LimitBuy = ({ price }: { price: number | undefined }) => {
           </Button>
         </div>
       </div>
-      <div className="border-y-2 border-[#d9d9d9]/30 py-5 w-full">
+      <div className="border-t-2 border-[#d9d9d9]/30 py-5 w-full">
         <div className="w-full flex items-center justify-between text-base mb-5 ">
           <span className="capitalize">Shares</span>
           <div className="flex items-center w-[150px] text-sm">
@@ -83,16 +83,18 @@ const LimitBuy = ({ price }: { price: number | undefined }) => {
           </button>
         </div>
       </div>
-      <div className="w-full space-y-2 py-5">
-        <div className="w-full flex items-end justify-between">
-          <span className="text-lg font-medium">Total</span>
-          <span className="text-2xl font-medium text-[#FF6b00]">${(limitPrice / 100 * shares).toFixed(2)}</span>
-        </div>
-        <div className="w-full flex items-end justify-between">
-          <span className="text-lg font-medium">Profit</span>
-          <span className="text-2xl font-medium text-[#00FFB2]">${shares}</span>
-        </div>
-      </div>
+      {shares > 0 &&
+        <div className="w-full space-y-2 py-5 border-t-2 border-[#d9d9d9]/30">
+          <div className="w-full flex items-end justify-between">
+            <span className="text-lg font-medium">Total</span>
+            <span className="text-2xl font-medium text-[#FF6b00]">${(limitPrice / 100 * shares).toFixed(2)}</span>
+          </div>
+          <div className="w-full flex items-end justify-between">
+            <span className="text-lg font-medium">Profit</span>
+            <span className="text-2xl font-medium text-[#00FFB2]">${shares}</span>
+          </div>
+        </div>}
+
     </>
   )
 }
