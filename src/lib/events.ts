@@ -1,0 +1,347 @@
+export const events = [
+  {
+    slug: "what-price-will-bitcoin-hit-in-april",
+    title: "What Price will Bitcoin hit in April?",
+    icon: "bitcoin",
+    des: "As of April 14, 2025, Solana (SOL) is trading at approximately $115.54, showing signs of a short-term recovery after bouncing from the $100 support level. The current trend remains bearish, but the Relative Strength Index (RSI) indicates improving bullish momentum. Analysts predict that if SOL breaks above the $120-$122 resistance zone, it could reach $130-$135 by the end of April. However, if the price fails to hold above $120, it may revisit the $105-$110 range, with $100 remaining a critical support level",
+    volume: 320045,
+    buy: [
+      {
+        outcome: 250,
+        chance: 1,
+        yes: 3.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 1.7,
+        no: 98.8,
+      },
+      {
+        outcome: 220,
+        chance: 1,
+        yes: 4.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 1.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 1.7,
+        no: 98.8,
+      },
+    ],
+    sell: [
+      {
+        outcome: 250,
+        chance: 1,
+        yes: 3.7,
+        no: 98.8,
+      },
+      {
+        outcome: 250,
+        chance: 1,
+        yes: 2.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 5.7,
+        no: 98.8,
+      },
+      {
+        outcome: 360,
+        chance: 1,
+        yes: 0.7,
+        no: 98.8,
+      },
+      {
+        outcome: 320,
+        chance: 1,
+        yes: 5.7,
+        no: 98.8,
+      },
+    ],
+    chart: [
+      {
+        name: 'Page A',
+        uv: 4000,
+        pv: 2400,
+        amt: 2400,
+      },
+      {
+        name: 'Page B',
+        uv: 3000,
+        pv: 1398,
+        amt: 2210,
+      },
+      {
+        name: 'Page C',
+        uv: 2000,
+        pv: 9800,
+        amt: 2290,
+      },
+      {
+        name: 'Page D',
+        uv: 2780,
+        pv: 3908,
+        amt: 2000,
+      },
+      {
+        name: 'Page E',
+        uv: 1890,
+        pv: 4800,
+        amt: 2181,
+      },
+      {
+        name: 'Page F',
+        uv: 2390,
+        pv: 3800,
+        amt: 2500,
+      },
+      {
+        name: 'Page G',
+        uv: 3490,
+        pv: 4300,
+        amt: 2100,
+      },
+    ]
+  },
+  {
+    slug: "what-price-will-ethereum-hit-in-april",
+    title: "What Price will Ethereum hit in April?",
+    icon: "ethereum",
+    des: "As of April 14, 2025, Solana (SOL) is trading at approximately $115.54, showing signs of a short-term recovery after bouncing from the $100 support level. The current trend remains bearish, but the Relative Strength Index (RSI) indicates improving bullish momentum. Analysts predict that if SOL breaks above the $120-$122 resistance zone, it could reach $130-$135 by the end of April. However, if the price fails to hold above $120, it may revisit the $105-$110 range, with $100 remaining a critical support level",
+    volume: 320045,
+    buy: [
+      {
+        outcome: 250,
+        chance: 1,
+        yes: 3.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 1.7,
+        no: 98.8,
+      },
+      {
+        outcome: 220,
+        chance: 1,
+        yes: 4.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 1.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 1.7,
+        no: 98.8,
+      },
+    ],
+    sell: [
+      {
+        outcome: 250,
+        chance: 1,
+        yes: 3.7,
+        no: 98.8,
+      },
+      {
+        outcome: 250,
+        chance: 1,
+        yes: 2.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 5.7,
+        no: 98.8,
+      },
+      {
+        outcome: 360,
+        chance: 1,
+        yes: 0.7,
+        no: 98.8,
+      },
+      {
+        outcome: 320,
+        chance: 1,
+        yes: 5.7,
+        no: 98.8,
+      },
+    ],
+    chart: [
+      {
+        name: 'Page A',
+        uv: 4000,
+        pv: 2400,
+        amt: 2400,
+      },
+      {
+        name: 'Page B',
+        uv: 3000,
+        pv: 1398,
+        amt: 2210,
+      },
+      {
+        name: 'Page C',
+        uv: 2000,
+        pv: 9800,
+        amt: 2290,
+      },
+      {
+        name: 'Page D',
+        uv: 2780,
+        pv: 3908,
+        amt: 2000,
+      },
+      {
+        name: 'Page E',
+        uv: 1890,
+        pv: 4800,
+        amt: 2181,
+      },
+      {
+        name: 'Page F',
+        uv: 2390,
+        pv: 3800,
+        amt: 2500,
+      },
+      {
+        name: 'Page G',
+        uv: 3490,
+        pv: 4300,
+        amt: 2100,
+      },
+    ]
+  },
+  {
+    slug: "bitcoin-price-on-april-18",
+    title: "Bitcoin price on April 18?",
+    icon: "bitcoin",
+    des: "As of April 14, 2025, Solana (SOL) is trading at approximately $115.54, showing signs of a short-term recovery after bouncing from the $100 support level. The current trend remains bearish, but the Relative Strength Index (RSI) indicates improving bullish momentum. Analysts predict that if SOL breaks above the $120-$122 resistance zone, it could reach $130-$135 by the end of April. However, if the price fails to hold above $120, it may revisit the $105-$110 range, with $100 remaining a critical support level",
+    volume: 320045,
+    buy: [
+      {
+        outcome: 250,
+        chance: 1,
+        yes: 3.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 1.7,
+        no: 98.8,
+      },
+      {
+        outcome: 220,
+        chance: 1,
+        yes: 4.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 1.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 1.7,
+        no: 98.8,
+      },
+    ],
+    sell: [
+      {
+        outcome: 250,
+        chance: 1,
+        yes: 3.7,
+        no: 98.8,
+      },
+      {
+        outcome: 250,
+        chance: 1,
+        yes: 2.7,
+        no: 98.8,
+      },
+      {
+        outcome: 300,
+        chance: 1,
+        yes: 5.7,
+        no: 98.8,
+      },
+      {
+        outcome: 360,
+        chance: 1,
+        yes: 0.7,
+        no: 98.8,
+      },
+      {
+        outcome: 320,
+        chance: 1,
+        yes: 5.7,
+        no: 98.8,
+      },
+    ],
+    chart: [
+      {
+        name: 'Page A',
+        uv: 4000,
+        pv: 2400,
+        amt: 2400,
+      },
+      {
+        name: 'Page B',
+        uv: 3000,
+        pv: 1398,
+        amt: 2210,
+      },
+      {
+        name: 'Page C',
+        uv: 2000,
+        pv: 9800,
+        amt: 2290,
+      },
+      {
+        name: 'Page D',
+        uv: 2780,
+        pv: 3908,
+        amt: 2000,
+      },
+      {
+        name: 'Page E',
+        uv: 1890,
+        pv: 4800,
+        amt: 2181,
+      },
+      {
+        name: 'Page F',
+        uv: 2390,
+        pv: 3800,
+        amt: 2500,
+      },
+      {
+        name: 'Page G',
+        uv: 3490,
+        pv: 4300,
+        amt: 2100,
+      },
+    ]
+  },
+]

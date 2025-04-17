@@ -6,11 +6,11 @@ import { FaSearch } from "react-icons/fa"
 import { TfiLayoutGrid3, TfiViewListAlt } from "react-icons/tfi";
 import useHorizontalScroll from "../horizontal-scroll";
 import { usePathname } from "next/navigation";
-import { useDisplay } from "@/context/DisplayContext";
+import { useDisplay } from "@/context/MarketContext";
 
 const SubMenu = ({ param }: { param: string }) => {
   const pathname = usePathname();
-  const path = pathname.split('/')[2];
+  const path = pathname.split('/')[3];
   const { displayWay, toggleDisplayWay } = useDisplay();
 
   const items = list[param as keyof typeof list] || [];
@@ -18,14 +18,14 @@ const SubMenu = ({ param }: { param: string }) => {
   useHorizontalScroll()
 
   return (
-    <div className="flex items-center justify-between px-10">
+    <div className="flex items-center justify-between px-10 sticky top-[130px] backdrop-blur-[20px] z-50">
       <div className="flex items-center space-x-0 overflow-x-auto horizontal-scroll py-5 text-base font-medium">
         {items.map((item: any) => {
           const endpoint = item.toLowerCase().split(' ').join('-');
 
           return (
-            <Link key={item} href={`/${param}/${endpoint}`}
-              className={`whitespace-nowrap px-5 py-1 hover:bg-[#ffffff]/30 rounded-full hover:text-[#00FFB2]/80 transition-colors duration-150 ease-initial ${path === endpoint ? 'text-[#00FFB2] bg-[#ffffff]/30' : ''}`}
+            <Link key={item} href={`/market/${param}/${endpoint}`}
+              className={`whitespace-nowrap px-5 py-1 hover:bg-[#ffffff]/20 rounded-full hover:text-[#FF0000]/80 transition-colors duration-150 ease-initial ${path === endpoint ? 'text-[#FF0000] bg-[#ffffff]/20' : ''}`}
             >
               {item}
             </Link>
@@ -41,7 +41,7 @@ const SubMenu = ({ param }: { param: string }) => {
           />
           <FaSearch className="absolute right-3" />
         </div>
-        <div className="h-10 w-[80px] border border-[#ffffff]/30 rounded-full flex items-center justify-between">
+        {/* <div className="h-10 w-[80px] border border-[#ffffff]/30 rounded-full flex items-center justify-between">
           <button
             onClick={toggleDisplayWay}
             className={`h-[38px] w-[38px] flex items-center justify-center rounded-full transition-all duration-300 ease-in-out  ${displayWay === 'list' ? 'bg-[#ffffff]/30 hover:bg-[#ffffff]/40 ' : 'bg-transparent hover:bg-[#ffffff]/10'}`}
@@ -54,7 +54,7 @@ const SubMenu = ({ param }: { param: string }) => {
           >
             <TfiLayoutGrid3 />
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   )

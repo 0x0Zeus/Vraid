@@ -8,25 +8,23 @@ import { usePathname } from "next/navigation"
 const MainMenu = () => {
   useHorizontalScroll();
   const pathname = usePathname();
-  const path = pathname.split('/')[1];
+  const path = pathname.split('/')[2];
 
   return (
     <div className="px-10 pb-5 h-full flex items-center justify-start gap-5">
-      <ul className="flex gap-5 text-lg font-medium border-r-2 border-white pr-5 shrink-0">
-        <li className={`hover:text-[#00FFB2]/80 transition-colors duration-150 ease-initial ${path === 'trending' ? 'text-[#00FFB2]/80' : ''}`}>
-          <Link href="/trending" className="flex items-center gap-1"><FaArrowTrendUp className="text-2xl shrink-0" />Trending</Link>
+      <ul className="flex gap-5 text-lg font-medium pr-5 shrink-0">
+        <li className={`hover:text-[#ff4500] transition-colors duration-150 ease-initial ${path === 'trending' ? 'text-[#ff4500]' : ''}`}>
+          <Link href="/market/trending" className="flex items-center gap-1"><FaArrowTrendUp className="text-2xl shrink-0" />Trending</Link>
         </li>
-        <li className={`hover:text-[#00FFB2]/80 transition-colors duration-150 ease-initial ${path === 'new' ? 'text-[#00FFB2]/80' : ''}`}>
-          <Link href="/new">New</Link>
+        <li className={`hover:text-[#ff4500] transition-colors duration-150 ease-initial ${path === 'new' ? 'text-[#ff4500]' : ''}`}>
+          <Link href="/market/new">News</Link>
         </li>
-      </ul>
-      <ul className="flex gap-5 text-lg font-medium horizontal-scroll overflow-x-auto">
-        {['politics', 'sports', 'crypto', 'tech', 'culture', 'world', 'economy', 'trump', 'elections', 'mentions'].map((item) => (
+        {['politics', 'economy', 'culture', 'geopolitics', 'pop culture', 'tech', 'crypto'].map((item) => (
           <li 
             key={item}
-            className={`hover:text-[#00FFB2]/80 transition-colors duration-150 ease-initial ${path === item ? 'text-[#00FFB2]/80' : ''}`}
+            className={`hover:text-[#ff4500] transition-colors duration-150 ease-initial ${path === item.replaceAll(/\s/g, '-') ? 'text-[#ff4500]' : ''}`}
           >
-            <Link href={`/${item}`}>{item.charAt(0).toUpperCase() + item.slice(1)}</Link>
+            <Link href={`/market/${item.replaceAll(/\s/g, '-')}`} className="capitalize">{item}</Link>
           </li>
         ))}
       </ul>
