@@ -103,7 +103,7 @@ const AuthModal = ({ param }: { param: string }) => {
           </Button>
           <Button variant={"outline"} className="cursor-pointer rounded-md bg-transparent border border-[#d9d9d9]/30 hover:bg-white">
             <Image
-              src={'/coinbase.png'}
+              src={'/Coinbase.png'}
               alt="Coinbase"
               width={20}
               height={20}
@@ -112,7 +112,7 @@ const AuthModal = ({ param }: { param: string }) => {
           </Button>
           <Button variant={"outline"} className="cursor-pointer rounded-md bg-transparent border border-[#d9d9d9]/30 hover:bg-white">
             <Image
-              src={'/walletconnect.png'}
+              src={'/WalletConnect.png'}
               alt="Walletconnect"
               width={20}
               height={20}
