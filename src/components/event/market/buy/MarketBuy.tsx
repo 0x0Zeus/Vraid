@@ -3,26 +3,26 @@ import { price } from "@/lib/types";
 import { useState } from "react";
 
 const MarketBuy = ({ price }: { price: number | undefined }) => {
-  const [amount, setAmount] = useState<string>("0");
+  const [amount, setAmount] = useState(0);
 
-  const amountNumber = parseFloat(amount) || 0;
+  // const amountNumber = parseFloat(amount) || 0;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value.replace(/^\$/, ""); // Remove leading $
-    // Remove all non-digit/non-dot characters
-    value = value.replace(/[^0-9.]/g, "");
-    // Allow only one decimal point
-    const parts = value.split(".");
-    if (parts.length > 2) {
-      value = parts[0] + "." + parts.slice(1).join("");
-    }
-    // Remove leading zeros unless it's like "0." or "0"
-    if (value.startsWith("0") && !value.startsWith("0.") && value.length > 1) {
-      value = value.replace(/^0+/, "");
-      if (value === "") value = "0";
-    }
-    setAmount(value);
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   let value = e.target.value.replace(/^\$/, ""); // Remove leading $
+  //   // Remove all non-digit/non-dot characters
+  //   value = value.replace(/[^0-9.]/g, "");
+  //   // Allow only one decimal point
+  //   const parts = value.split(".");
+  //   if (parts.length > 2) {
+  //     value = parts[0] + "." + parts.slice(1).join("");
+  //   }
+  //   // Remove leading zeros unless it's like "0." or "0"
+  //   if (value.startsWith("0") && !value.startsWith("0.") && value.length > 1) {
+  //     value = value.replace(/^0+/, "");
+  //     if (value === "") value = "0";
+  //   }
+  //   setAmount(value);
+  // };
 
   return (
     <>
@@ -30,7 +30,7 @@ const MarketBuy = ({ price }: { price: number | undefined }) => {
         <span>Amount</span>
         <Input
           value={`$${amount}`}
-          onChange={handleChange}
+          onChange={(e) => setAmount(Number(e.target.value.replace(/^0-9/g, '')))}
           className="text-right border border-[#d9d9d9]/30 rounded-md focus-visible:ring-0 w-[100px]"
         />
       </div>
@@ -60,10 +60,10 @@ const MarketBuy = ({ price }: { price: number | undefined }) => {
           Max
         </button>
       </div>
-      {amountNumber !== 0 && (
+      {amount !== 0 && (
         <div className="border-t-2 border-[#d9d9d9]/30 w-full flex items-end justify-between py-5">
           <span className="text-lg font-medium">Profit</span>
-          <span className="text-2xl font-medium text-[#00FFB2]">${price ? (amountNumber / price * 100).toFixed(2) : '0.00'}</span>
+          <span className="text-2xl font-medium text-[#00FFB2]">${price ? (amount / price * 100).toFixed(2) : '0.00'}</span>
         </div>
       )}
     </>

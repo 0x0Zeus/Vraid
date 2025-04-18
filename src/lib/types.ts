@@ -30,5 +30,21 @@ export interface price {
 
 export interface EventContextType {
   event: eventData | undefined;
+  chosenIndex: ChosenDataType;
+  market: 'sell' | 'buy';
   setEvent: (data: eventData | undefined) => void;
+  setChosenIndex: (data: ChosenDataType) => void;
+  setMarket: (data: 'sell' | 'buy') => void;
+}
+
+export interface ChosenDataType { 
+  type: 'yes' | 'no' | null; 
+  num: number 
+}
+
+export interface OrderType {
+  tradeYes: string,
+  price: number,
+  shares: number,
+  total: number
 }

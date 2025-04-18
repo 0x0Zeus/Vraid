@@ -12,8 +12,8 @@ import { use, useEffect, useRef, useState } from "react"
 const Page = ({ params }: { params: Promise<{ slug: string }> }) => {
   // Get the corresponding event data from the slug
   const { slug } = use(params);
-  const {event, setEvent} = useEventContext()
-  
+  const { event, setEvent } = useEventContext()
+
   useEffect(() => {
     const data = events.find((event: eventData) => event.slug === slug);
     setEvent(data);
@@ -39,13 +39,13 @@ const Page = ({ params }: { params: Promise<{ slug: string }> }) => {
 
   // changing buy or sell
   const [market, setMarket] = useState<'sell' | 'buy'>('buy');
-  const [selectedPrice, setSelectedPrice] = useState<number>(0);
-  
+  const [selectedPrice, setSelectedPrice] = useState(0);
+
   const changeMarket = (m: string) => {
     setMarket(m as 'sell' | 'buy');
   }
-  
-  const changeSelectedPrice = (index: number) => {
+
+  const changeSelectedIndex = (index: number) => {
     setSelectedPrice(index);
   }
 
@@ -69,10 +69,10 @@ const Page = ({ params }: { params: Promise<{ slug: string }> }) => {
           <Chart />
         </div>
         <div className="border border-[#d9d9d9]/30 rounded-md p-10 w-full">
-          <SubMarkets market={market} changeSelectedPrice={changeSelectedPrice} />
+          <SubMarkets changeSelectedIndex={changeSelectedIndex} />
         </div>
       </div>
-      <MarketCard market={market} selectedPrice={selectedPrice} changeMarket={changeMarket} />
+      <MarketCard selectedPrice={selectedPrice} />
     </div>
   )
 }

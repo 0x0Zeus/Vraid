@@ -1,15 +1,21 @@
 'use client'
 
-import { EventContextType, eventData } from "@/lib/types";
-import { createContext, useContext, useState } from "react";
+import { ChosenDataType, EventContextType, eventData } from "@/lib/types";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const EventContext = createContext<EventContextType | null>(null)
 
 export const EventProvider = ({ children }: { children: React.ReactNode }) => {
   const [event, setEvent] = useState<eventData | undefined>(undefined)
+  const [chosenIndex, setChosenIndex] = useState<ChosenDataType>({ type: null, num: 0 })
+  const [market, setMarket] = useState<'sell' | 'buy'>('buy')
+
+  useEffect(() => {
+    console.log("=====", chosenIndex)
+  }, [chosenIndex])
 
   return (
-    <EventContext.Provider value={{ event, setEvent }}>
+    <EventContext.Provider value={{ event, setEvent, chosenIndex, setChosenIndex, market, setMarket }}>
       { children }
     </EventContext.Provider >
   )
