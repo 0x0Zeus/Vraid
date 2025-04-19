@@ -37,9 +37,9 @@ export interface EventContextType {
   setMarket: (data: 'sell' | 'buy') => void;
 }
 
-export interface ChosenDataType { 
-  type: 'yes' | 'no' | null; 
-  num: number 
+export interface ChosenDataType {
+  type: 'yes' | 'no' | null;
+  num: number
 }
 
 export interface OrderType {
@@ -47,4 +47,12 @@ export interface OrderType {
   price: number,
   shares: number,
   total: number
+}
+
+export interface AuthContextType {
+  logined: boolean;
+}
+
+export interface User {
+  isAuthenticated: boolean;
 }

@@ -11,6 +11,7 @@ import Link from "next/link"
 import { Checkbox } from "../ui/checkbox"
 import Image from "next/image"
 import { useState } from "react"
+import UsernameModal from "./UsernameModal"
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address" }),
@@ -145,13 +146,7 @@ const AuthModal = ({ param }: { param: string }) => {
           </div>
         </DialogContent>
       </Dialog>
-      <Dialog open={usernameModal} onOpenChange={handleUsernameModalChange}>
-        <DialogContent className="">
-          <DialogHeader>
-            <DialogTitle>Choose your name</DialogTitle>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
+      <UsernameModal open={usernameModal} handleUsernameModalChange={handleUsernameModalChange} />
     </>
   )
 }
