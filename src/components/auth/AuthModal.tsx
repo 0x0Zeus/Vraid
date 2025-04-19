@@ -80,6 +80,7 @@ const AuthModal = ({ param }: { param: string }) => {
             />
             Connect with Google
           </Button>
+
           <div className="flex justify-between items-center w-full">
             <div className="border-b border-[#d9d9d9]/30 w-[100px] flex-1"></div>
             <span className="flex-shrink-0 mx-5">OR</span>
@@ -148,6 +149,7 @@ const AuthModal = ({ param }: { param: string }) => {
       </Dialog>
       <UsernameModal open={usernameModal} handleUsernameModalChange={handleUsernameModalChange} />
     </>
+
   )
 }
 
