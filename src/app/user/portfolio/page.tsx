@@ -1,10 +1,10 @@
 "use client";
 
-import TransferCrypto from "@/components/auth/TransferCrypto";
 import Chart from "@/components/event/Chart";
 import { Button } from "@/components/ui/button";
-import WithdrawModal from "@/components/WithdrawModal";
+import WithdrawModal from "@/components/modal/WithdrawModal";
 import { useState } from "react";
+import TransferCrypto from "@/components/modal/TransferCrypto";
 
 const Page = () => {
   const [transferCryptoOpen, setTransferCryptoOpen] = useState<boolean>(false);

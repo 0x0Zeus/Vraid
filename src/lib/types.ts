@@ -50,9 +50,13 @@ export interface OrderType {
 }
 
 export interface AuthContextType {
-  logined: boolean;
+  user: User;
+  setUser: (user: User) => void;
+  logout: () => void;
 }
 
 export interface User {
-  isAuthenticated: boolean;
+  email: string;
+  username: string;
+  logined: boolean;
 }

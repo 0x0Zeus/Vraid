@@ -18,15 +18,21 @@ import {
 import { FaRegUser } from "react-icons/fa6";
 import { RiLogoutBoxLine, RiUserSettingsLine } from "react-icons/ri";
 import { useState } from "react";
-import TransferCrypto from "../auth/TransferCrypto";
+import TransferCrypto from "../modal/TransferCrypto";
+import RegisterModal from "../modal/RegisterModal";
 
 const Header = () => {
-  const auth = useAuth();
+  const {user, setUser, logout} = useAuth();
   const [transferCryptoOpen, setTransferCryptoOpen] = useState<boolean>(false);
+  const [registerModal, setRegisterModal] = useState<boolean>(false);
 
   const handleTransferCryptoChange = (open: boolean) => {
     setTransferCryptoOpen(open);
   };
+
+  const handleRegisterModal = (open: boolean) => {
+    setRegisterModal(open);
+  }
 
   return (
     <>
@@ -42,10 +48,22 @@ const Header = () => {
             />
           </Link>
           <div className="flex gap-7.5 h-full items-center">
-            {!auth?.logined ? (
+            {!user.logined ? (
               <>
-                <AuthModal param="login" />
-                <AuthModal param="register" />
+                <Button
+                  variant="outline"
+                  onClick={() => handleRegisterModal(true)}
+                  className="w-[100px] cursor-pointer hover:shadow-[0_0_10px_rgba(255,69,0)] text-[#ff4500]/80 border-[#ff4500]/80 hover:bg-[#ff4500]/80 hover:text-white"
+                >
+                  Login
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => handleRegisterModal(true)}
+                  className="w-[100px] cursor-pointer hover:shadow-[0_0_10px_rgba(255,69,0)] text-[#ff4500]/80 border-[#ff4500]/80 hover:bg-[#ff4500]/80 hover:text-white"
+                >
+                  Register
+                </Button>
               </>
             ) : (
               <>
@@ -84,20 +102,20 @@ const Header = () => {
                   >
                     <DropdownMenuLabel className="flex items-center p-2 space-x-3">
                       <FaRegUser className="w-6 h-6 text-white rounded-full" />
-                      <span className="text-xl capitalize">username</span>
+                      <span className="text-xl capitalize">{user.username}</span>
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator className="bg-[#d9d9d9]/30" />
                     <DropdownMenuGroup className="p-2">
                       <DropdownMenuItem className="focus:bg-[#d9d9d9]/30 focus:text-white">
                         <Link
                           href="/user/profile"
-                          className="flex items-center gap-2"
+                          className="flex items-center gap-2 w-full"
                         >
                           <RiUserSettingsLine className="text-white" />
-                          <span className="text-base">Profile</span>
+                          <span className="text-base flex-1">Profile</span>
                         </Link>
                       </DropdownMenuItem>
-                      <DropdownMenuItem className="focus:bg-[#d9d9d9]/30 focus:text-white">
+                      <DropdownMenuItem className="focus:bg-[#d9d9d9]/30 focus:text-white" onClick={logout}>
                         <RiLogoutBoxLine className="text-white" />
                         <span className="text-base">Logout</span>
                       </DropdownMenuItem>
@@ -110,6 +128,7 @@ const Header = () => {
         </div>
         <MainMenu />
       </header>
+      <RegisterModal open={registerModal} handleRegisterModal={handleRegisterModal} param="login" />
       <TransferCrypto
         open={transferCryptoOpen}
         handleTransferCryptoChange={handleTransferCryptoChange}

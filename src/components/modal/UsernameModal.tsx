@@ -7,6 +7,7 @@ import { z } from 'zod'
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import DepositFunds from "./DepositFunds"
+import { useAuth } from "@/context/AuthContext"
 
 const usernameSchema = z.object({
   username: z.string()
@@ -14,8 +15,9 @@ const usernameSchema = z.object({
 
 const UsernameModal = ({ open, handleUsernameModalChange }: { open: boolean; handleUsernameModalChange: (open: boolean) => void }) => {
   const [isCheckingUsername, setIsCheckingUsername] = useState(false)
-  // const [usernameModal, setUsernameModal] = useState<boolean>(false)
   const [depositFundsOpen, setDepositFundsOpen] = useState(false)
+
+  const {user, setUser} = useAuth()
 
   const usernameForm = useForm<z.infer<typeof usernameSchema>>({
     resolver: zodResolver(usernameSchema),
@@ -28,6 +30,12 @@ const UsernameModal = ({ open, handleUsernameModalChange }: { open: boolean; han
     if (values.username === 'Super') {
       usernameForm.reset()
       handleUsernameModalChange(false)
+
+      setUser({
+        ...user,
+        username: values.username,
+      })
+
       setTimeout(() => {
         setDepositFundsOpen(true)
       }, 100)

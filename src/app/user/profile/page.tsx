@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Table,
   TableBody,
@@ -6,18 +8,21 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Tabs, TabsTrigger } from "@/components/ui/tabs";
+import { useAuth } from "@/context/AuthContext";
 import { TabsContent, TabsList } from "@radix-ui/react-tabs";
 import Image from "next/image";
 import { FaRegUser } from "react-icons/fa6";
 
 const Page = () => {
+  const {user, setUser} = useAuth() 
+
   return (
     <div className="pt-[30px] max-w-5xl mx-auto space-y-10 mb-[100px]">
       <div className="space-y-10">
         <div className="flex items-center gap-5">
           <FaRegUser size={60} className="rounded-full" />
           <div className="space-y-2">
-            <h1 className="text-2xl font-semibold">User</h1>
+            <h1 className="text-2xl font-semibold">{user.username}</h1>
             <p className="text-[#d9d9d9]/80">
               0x4A1bb625B33Ccc0bE49Ff56D07c9c940eeb836Be
             </p>

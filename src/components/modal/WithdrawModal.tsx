@@ -6,13 +6,13 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "./ui/dialog";
-import { Button } from "./ui/button";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
+} from "../ui/dialog";
+import { Button } from "../ui/button";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "../ui/form";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "./ui/input";
+import { Input } from "../ui/input";
 
 const withdrawSchema = z.object({
   address: z.string(),
