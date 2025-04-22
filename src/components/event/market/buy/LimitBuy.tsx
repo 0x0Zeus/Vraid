@@ -4,6 +4,7 @@ import { price } from "@/lib/types";
 import { useEffect, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 
+// Virtual Minimum and Maximum share limits for user input
 const SHARE_MIN = 0;
 const SHARE_MAX = 999;
 
@@ -16,6 +17,7 @@ const LimitBuy = ({ price }: { price: number | undefined }) => {
       <div className="w-full flex items-center justify-between text-base mb-5 ">
         <span className="capitalize">Limit Price</span>
         <div className="flex items-center w-[150px] text-sm">
+          {/* Decrease button */}
           <Button
             variant="outline"
             className="border border-[#d9d9d9]/30 rounded-r-none border-r-0 cursor-pointer"
@@ -45,6 +47,7 @@ const LimitBuy = ({ price }: { price: number | undefined }) => {
             }}
             className="text-center border border-[#d9d9d9]/30 rounded-none focus-visible:ring-0"
           />
+          {/* Increase button */}
           <Button
             variant="outline"
             className="border border-[#d9d9d9]/30 border-l-0 rounded-l-none cursor-pointer"
@@ -58,6 +61,8 @@ const LimitBuy = ({ price }: { price: number | undefined }) => {
           </Button>
         </div>
       </div>
+
+      {/* Quick +/-10 share buttons */}
       <div className="border-t-2 border-[#d9d9d9]/30 py-5 w-full">
         <div className="w-full flex items-center justify-between text-base mb-5 ">
           <span className="capitalize">Shares</span>
@@ -71,7 +76,10 @@ const LimitBuy = ({ price }: { price: number | undefined }) => {
                     value = "0" + value;
                   }
                   const normalizedValue = value.replace(/^0+(?=\d)/, "");
-                  const v = Math.max(SHARE_MIN, Math.min(SHARE_MAX, Number(normalizedValue)));
+                  const v = Math.max(
+                    SHARE_MIN,
+                    Math.min(SHARE_MAX, Number(normalizedValue))
+                  );
                   setShares(v.toString());
                 }
               }}
@@ -79,16 +87,25 @@ const LimitBuy = ({ price }: { price: number | undefined }) => {
             />
           </div>
         </div>
+
         <div className="w-full flex items-center justify-end gap-3">
           <button
-            onClick={() => setShares((shares) => Math.max(SHARE_MIN, Number(shares) - 10).toString())}
+            onClick={() =>
+              setShares((shares) =>
+                Math.max(SHARE_MIN, Number(shares) - 10).toString()
+              )
+            }
             disabled={Number(shares) === SHARE_MIN}
             className="text-sm border border-[#d9d9d9]/30 rounded-md bg-transparent h-8 w-12 cursor-pointer hover:bg-[#d9d9d9]/30"
           >
             -10
           </button>
           <button
-            onClick={() => setShares((shares) => Math.min(SHARE_MAX, Number(shares) + 10).toString())}
+            onClick={() =>
+              setShares((shares) =>
+                Math.min(SHARE_MAX, Number(shares) + 10).toString()
+              )
+            }
             disabled={Number(shares) === SHARE_MAX}
             className="text-sm border border-[#d9d9d9]/30 rounded-md bg-transparent h-8 w-12 cursor-pointer hover:bg-[#d9d9d9]/30"
           >

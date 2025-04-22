@@ -27,7 +27,7 @@ export default function RootLayout({
       >
         <AuthProvider>
           <Header />
-          <main className="max-w-[1440px] mx-auto mt-[150px] font-chakra-petch">
+          <main className="max-w-[1440px] mx-auto mt-[90px] sm:mt-[150px] font-chakra-petch">
             {children}
           </main>
         </AuthProvider>

@@ -5,6 +5,7 @@ interface SelectBoxProps {
   displayValue: number;
 }
 
+// for table list- don't use
 const SelectBox = ({ clickOption, displayValue }: SelectBoxProps) => {
   return (
     <Select onValueChange={(value) => clickOption(Number(value))}>

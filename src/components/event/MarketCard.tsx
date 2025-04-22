@@ -31,10 +31,10 @@ const MarketCard = (
   const [marketType, setMarketType] = useState<'market' | 'limit'>('market');
   
   return (
-    <div className="border border-[#d9d9d9]/30 rounded-md py-5 w-[350px] sticky top-[170px] self-start">
+    <div className="sm:border border-[#d9d9d9]/30 rounded-md py-5 w-[350px] sticky top-[170px] self-start bg-black">
       <div className="flex items-center gap-5 px-7">
         <Image
-          src={`/${event?.icon}.png`}
+          src={`/${event?.icon}.svg`}
           alt={event?.title || "Event"}
           width={256}
           height={256}

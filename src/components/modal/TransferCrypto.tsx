@@ -28,8 +28,8 @@ const TransferCrypto = ({ open, handleTransferCryptoChange }: { open: boolean; h
         <div className="w-full px-5 py-5 space-y-3">
           <p className="text-xl">Your Deposit Address:</p>
           <div className="border border-[#d9d9d9]/30 rounded-md text-center divide-y divide-[#d9d9d9]/30">
-            <p className="py-5">{walletAddress}</p>
-            <div className="py-5">
+            <p className="py-5 text-ellipsis overflow-hidden px-5">{walletAddress}</p>
+            <div className="py-5 px-5">
               <Button 
               variant={"outline"} 
               className="max-w-[320px] w-full bg-transparent cursor-pointer hover:shadow-[0_0_10px_rgba(255,69,0)] text-[#ff4500]/80 border-[#ff4500]/80 hover:bg-[#ff4500]/80 hover:text-white"

@@ -14,6 +14,7 @@ import { formatNumber } from "@/lib/functions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+// Table list for events
 const TableList = ({ data }: { data: marketData[] }) => {
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);

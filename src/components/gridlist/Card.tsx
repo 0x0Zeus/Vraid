@@ -4,13 +4,16 @@ import Image from "next/image"
 import Link from "next/link"
 import { GoGift } from "react-icons/go"
 
+// Card list for event
 const Card = ({ item }: { item: marketData }) => {
   return (
     <div className="border border-[#ffffff]/20 rounded-md p-5 h-[250px] flex flex-col">
       <div className="flex items-center gap-2">
-        <Image src={`/${item.net}.png`} alt={item.net} width={256} height={256} className="w-10 h-auto" />
+        <Image src={`/${item.net}.svg`} alt={item.net} width={256} height={256} className="w-10 h-auto" />
         <Link href={`/event/${item.title.replace(/[^a-zA-Z0-9 ]/g, '').replace(/\s+/g, '-').toLowerCase()}`} className="text-base font-medium hover:underline text-nowrap text-ellipsis overflow-hidden hover:text-[#ff4500]/80">{item.title}</Link>
       </div>
+
+      {/* Market list for each event */}
       <ul className="flex flex-col items-center justify-between my-3 gap-2 text-sm overflow-auto vertical-scroll">
         {item.prices.map((price, index) => (
           <li key={index} className="flex items-center justify-between w-full">

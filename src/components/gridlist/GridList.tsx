@@ -2,6 +2,7 @@ import { marketData } from "@/lib/types"
 import Card from "./Card"
 import { useEffect, useState } from "react"
 
+// Grid list for event (don't use)
 const GridList = ({ data }: { data: marketData[] }) => {
   const [displayedItems, setDisplayedItems] = useState<marketData[]>([]);
   const [page, setPage] = useState<number>(1);

@@ -19,7 +19,7 @@ const DepositFunds = ({ open, handleDepositFundsChange }: { open: boolean; handl
             <DialogTitle className="text-2xl font-bold space-x-2 flex items-end justify-center">
               <div className="flex flex-col items-center gap-2">
                 <Image
-                  src={'/bitcoin.png'}
+                  src={'/bitcoin.svg'}
                   alt="Coin"
                   width={70}
                   height={70}

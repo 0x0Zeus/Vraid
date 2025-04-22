@@ -6,6 +6,7 @@ interface PageNumProps {
   totalPage: number;
 }
 
+// for table list- don't use
 const PageNum = ({ setPage, pageNum, totalPage }: PageNumProps) => {
   const handlePageChange = (page: number) => {
     setPage(page);

@@ -16,7 +16,7 @@ import {
   FormMessage,
 } from "../ui/form";
 import UsernameModal from "./UsernameModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -69,6 +69,15 @@ const RegisterModal = ({
     }
   };
 
+  /* For mobile, when click login button on navbar, this register modal open.
+  Then close this modal. At that time, the error causes. You can't click anything on the screen.
+  So, I used useEffect to prevent this error. */
+  useEffect(() => {
+    return () => {
+      document.body.style.pointerEvents = "auto"
+    }
+  }, [open])
+
   return (
     <>
       <Dialog open={open} onOpenChange={handleRegisterModal}>
@@ -77,7 +86,7 @@ const RegisterModal = ({
             <DialogTitle className="text-2xl font-bold space-x-2 flex items-end justify-center">
               <span>Welcome to</span>
               <Image
-                src="/logo.png"
+                src="/logo.svg"
                 alt="Logo"
                 width={300}
                 height={100}
@@ -91,7 +100,7 @@ const RegisterModal = ({
             className="max-w-[320px] w-full bg-[#2ela47] text-white hover:bg-white hover:text-black cursor-pointer border-[#d9d9d9]/30"
           >
             <Image
-              src={"/google.png"}
+              src={"/google.svg"}
               alt="Google"
               width={256}
               height={256}
@@ -143,7 +152,7 @@ const RegisterModal = ({
               className="cursor-pointer rounded-md bg-transparent border border-[#d9d9d9]/30 hover:bg-white"
             >
               <Image
-                src={"/phantom.png"}
+                src={"/phantom.svg"}
                 alt="Phantom"
                 width={20}
                 height={20}
@@ -155,7 +164,7 @@ const RegisterModal = ({
               className="cursor-pointer rounded-md bg-transparent border border-[#d9d9d9]/30 hover:bg-white"
             >
               <Image
-                src={"/metamask.png"}
+                src={"/metamask.svg"}
                 alt="Metamask"
                 width={20}
                 height={20}
@@ -167,7 +176,7 @@ const RegisterModal = ({
               className="cursor-pointer rounded-md bg-transparent border border-[#d9d9d9]/30 hover:bg-white"
             >
               <Image
-                src={"/Coinbase.png"}
+                src={"/coinbase.svg"}
                 alt="Coinbase"
                 width={20}
                 height={20}
@@ -179,7 +188,7 @@ const RegisterModal = ({
               className="cursor-pointer rounded-md bg-transparent border border-[#d9d9d9]/30 hover:bg-white"
             >
               <Image
-                src={"/WalletConnect.png"}
+                src={"/walletconnect.svg"}
                 alt="Walletconnect"
                 width={20}
                 height={20}

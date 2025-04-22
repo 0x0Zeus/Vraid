@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { OrderAskData, OrderBidData } from "@/lib/orderData";
 import Chart from "./Chart";
 
-const SubMarkets = ({ changeSelectedIndex }: { changeSelectedIndex: (index: number) => void }) => {
+const SubMarkets = ({ changeSelectedIndex, openMarketCardModal }: { changeSelectedIndex: (index: number) => void, openMarketCardModal: () => void }) => {
   const { event, market, chosenIndex, setChosenIndex } = useEventContext()
 
   // Get sub market data
@@ -25,14 +25,25 @@ const SubMarkets = ({ changeSelectedIndex }: { changeSelectedIndex: (index: numb
     setExpandedRow(expandedRow === index ? null : index)
   }
 
+  // Handle button click to open modal on mobile
+  const handleButtonClick = (e: React.MouseEvent, index: number, type: "yes" | 'no') => {
+    e.stopPropagation();
+    changeSelectedIndex(index);
+    setChosenIndex({type, num: index})
+    // Check if we're on mobile
+    if (window.innerWidth < 640) {
+      openMarketCardModal();
+    }
+  }
+
   return (
-    <Table>
+    <Table className="overflow-auto touch-pan-x">
       <TableHeader className="">
-        <TableRow className="border-[#d9d9d9]/30 text-lg font-medium">
-          <TableCell className="pl-10">
+        <TableRow className="border-[#d9d9d9]/30 text-base sm:text-lg font-medium">
+          <TableCell className="pl-0 sm:pl-10">
             OUTCOME
           </TableCell>
-          <TableCell className="w-[300px] pr-10">
+          <TableCell className="w-[300px] pr-0 sm:pr-10 max-sm:text-center">
             CHANCE %
           </TableCell>
         </TableRow>
@@ -44,20 +55,18 @@ const SubMarkets = ({ changeSelectedIndex }: { changeSelectedIndex: (index: numb
               className={`${expandedRow === index ? 'border-none' : 'border-[#d9d9d9]/30'}  text-base hover:bg-[#ffffff]/10 cursor-pointer`}
               onClick={() => toggleRow(index)}
             >
-              <TableCell className="pl-10">
-                <div className="flex flex-col py-2">
+              <TableCell className="pl-0 sm:pl-10">
+                <div className="flex flex-col py-2 max-sm:text-sm">
                   <p className="">${price.outcome.toLocaleString()}</p>
                   <p>${event?.volume.toLocaleString()} VOL</p>
                 </div>
               </TableCell>
-              <TableCell className="pr-10">
-                <div className="flex gap-5">
+              <TableCell className="pr-0 sm:pr-10">
+                <div className="flex gap-5 items-center max-sm:justify-end">
                   <span className="text-right">{price.chance}%</span>
-                  <div className="flex items-center gap-2">
+                  <div className="flex max-sm:flex-col items-center gap-2">
                     <button
-                      onClick={() => setChosenIndex(
-                        { type: 'yes', num: index }
-                      )}
+                      onClick={(e) => handleButtonClick(e, index, 'yes')}
                       className={`relative px-3 h-7 rounded-full  text-sm cursor-pointer group hover:bg-[#00FFB2]/60 hover:text-white
                         ${(chosenIndex?.type === 'yes' && chosenIndex?.num === index) ? 'bg-[#00ffb2]/60 text-white' : 'bg-[#00FFB2]/20 text-[#00FFB2]'}
                         `}
@@ -65,9 +74,7 @@ const SubMarkets = ({ changeSelectedIndex }: { changeSelectedIndex: (index: numb
                       <span className="block capitalize">{market} Yes {price.yes}¢</span>
                     </button>
                     <button
-                      onClick={() => setChosenIndex(
-                        { type: 'no', num: index }
-                      )}
+                      onClick={(e) => handleButtonClick(e, index, 'no')}
                       className={`relative px-3 h-7 rounded-full text-sm cursor-pointer group hover:bg-[#FF6B00] hover:text-white
                         ${(chosenIndex?.type === 'no' && chosenIndex?.num === index) ? 'bg-[#FF6B00] text-white' : 'bg-[#FF6B00]/20 text-[#FF6B00]'}
                         `}
@@ -83,7 +90,7 @@ const SubMarkets = ({ changeSelectedIndex }: { changeSelectedIndex: (index: numb
                 <TableCell colSpan={2} className="px-0">
                   <Tabs defaultValue="order">
                     <div className="border-b border-[#d9d9d9]/30">
-                      <TabsList className="bg-transparent rounded-none space-x-4 px-10">
+                      <TabsList className="bg-transparent rounded-none space-x-4 px-0 sm:px-10">
                         <TabsTrigger
                           className="hover:text-[#ff4500] px-0 border-b hover:border-[#ff4500] data-[state=active]:bg-transparent data-[state=active]:text-[#ff4500] data-[state=active]:border-[#ff4500]"
                           value="order"
@@ -105,19 +112,19 @@ const SubMarkets = ({ changeSelectedIndex }: { changeSelectedIndex: (index: numb
                     </div>
                     <TabsContent value="order">
                       <div>
-                        <Table className="">
+                        <Table className="overflow-auto touch-pan-x">
                           <TableHeader className="">
                             <TableRow className="text-[#d9d9d9]/60">
-                              <TableCell className="pl-10 w-full">Trade Yes</TableCell>
+                              <TableCell className="pl-0 sm:pl-10 w-full">Trade Yes</TableCell>
                               <TableCell className="text-center">Price</TableCell>
                               <TableCell className="text-center">Shares</TableCell>
-                              <TableCell className="pr-10 text-center">Total</TableCell>
+                              <TableCell className="pr-0 sm:pr-10 text-center">Total</TableCell>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
                             {OrderAskData.map((order: OrderType, index) => (
                               <TableRow key={index} className="border-none">
-                                <TableCell className="pl-10 ">
+                                <TableCell className="pl-0 sm:pl-10 ">
                                   <div className="w-fit bg-[#ff6b00]/80 text-white rounded-md capitalize px-3">
                                     {order.tradeYes}
                                   </div>
@@ -128,13 +135,13 @@ const SubMarkets = ({ changeSelectedIndex }: { changeSelectedIndex: (index: numb
                                 <TableCell className="text-center">
                                   {order.shares}
                                 </TableCell>
-                                <TableCell className="pr-10 text-center">
+                                <TableCell className="pr-0 sm:pr-10 text-center">
                                   ${order.total}
                                 </TableCell>
                               </TableRow>
                             ))}
                             <TableRow className="border-[#d9d9d9]/30 border-b border-t text-[#d9d9d9]/60">
-                              <TableCell className="pl-10">
+                              <TableCell className="pl-0 sm:pl-10">
                                 Last: 0.1¢
                               </TableCell>
                               <TableCell className="text-center">
@@ -143,7 +150,7 @@ const SubMarkets = ({ changeSelectedIndex }: { changeSelectedIndex: (index: numb
                             </TableRow>
                             {OrderBidData.map((order: OrderType, index) => (
                               <TableRow key={index} className="border-none">
-                                <TableCell className="pl-10">
+                                <TableCell className="pl-0 sm:pl-10">
                                   <div className="w-fit bg-[#00ffb2]/50 text-white rounded-md capitalize px-3">
                                     {order.tradeYes}
                                   </div>
@@ -154,7 +161,7 @@ const SubMarkets = ({ changeSelectedIndex }: { changeSelectedIndex: (index: numb
                                 <TableCell className="text-center">
                                   {order.shares}
                                 </TableCell>
-                                <TableCell className="pr-10 text-center">
+                                <TableCell className="pr-0 sm:pr-10 text-center">
                                   ${order.total}
                                 </TableCell>
                               </TableRow>

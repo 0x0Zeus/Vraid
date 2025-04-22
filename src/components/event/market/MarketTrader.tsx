@@ -22,10 +22,12 @@ const MarketTrader = ({
   const { chosenIndex, setChosenIndex } = useEventContext();
   const [registerModal, setRegisterModal] = useState<boolean>(false);
 
+  // Get detail price info with chosen index
   useEffect(() => {
     setChosenPrice(prices?.[chosenIndex?.type || "yes"] ?? 0);
   }, [prices, chosenIndex]);
 
+  // Handle Register Modal
   const handleRegisterModal = (open: boolean) => {
     setRegisterModal(open);
   }
@@ -52,6 +54,7 @@ const MarketTrader = ({
         >
           <span className="block">Yes {prices?.yes}¢</span>
         </button>
+
         <button
           onClick={() =>
             setChosenIndex({
@@ -74,13 +77,17 @@ const MarketTrader = ({
       </div>
       {type === "buy" ? (
         marketType === "market" ? (
+          // Buy Market in Market Trader
           <MarketBuy price={chosenPrice} />
         ) : (
+          // Buy Limit in Market Trader
           <LimitBuy price={chosenPrice} />
         )
       ) : marketType === "market" ? (
+        // Sell Market in Market Trader
         <MarketSell price={chosenPrice} />
       ) : (
+        // Sell Limit in Market Trader
         <LimitSell price={chosenPrice} />
       )}
       <div className="px-5 w-full">
@@ -92,6 +99,7 @@ const MarketTrader = ({
           login to trade
         </Button>
       </div>
+      {/* Open Register Modal if click login to trade button */}
       <RegisterModal open={registerModal} handleRegisterModal={handleRegisterModal} param="login" />
     </div>
   );
